@@ -1,34 +1,44 @@
-// Define the pages array to store page data
-var pages = [];
+let pages = [];
 
-// Function to add a new page to the pages array
-function addPage(title, content, imageUrl, videoUrl, pdfUrl) {
-    var id = Math.random().toString(36).substring(2, 15); // Generate a random id
-    var page = {
-        id: id,
+// Function to create a new page
+function createPage(title, content) {
+    let page = {
+        id: Date.now().toString(),
         title: title,
         content: content,
-        imageUrl: imageUrl,
-        videoUrl: videoUrl,
-        pdfUrl: pdfUrl
+        url: ""
     };
     pages.push(page);
-    updatePageList();
+    return page;
 }
 
-// Function to update the page list in the navigation
-function updatePageList() {
-    var pageList = document.getElementById("pageList");
-    pageList.innerHTML = "";
+// Function to display pages in the index
+function displayPageIndex() {
+    let pageIndex = document.getElementById("pageIndex");
+    pageIndex.innerHTML = "";
     pages.forEach(function(page) {
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.href = "page.html?pageId=" + page.id;
+        let li = document.createElement("li");
+        let a = document.createElement("a");
         a.textContent = page.title;
+        a.href = page.url;
         li.appendChild(a);
-        pageList.appendChild(li);
+        pageIndex.appendChild(li);
     });
 }
 
-// Call the function to update the page list on page load
-updatePageList();
+// Function to update page URL
+function updatePageUrl(page) {
+    page.url = "page.html?pageId=" + page.id;
+}
+
+// Add event listener for form submit
+document.getElementById("pageForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let pageTitle = document.getElementById("pageTitle").value;
+    let pageContent = document.getElementById("pageContent").value;
+    let page = createPage(pageTitle, pageContent);
+    updatePageUrl(page);
+    displayPageIndex();
+    document.getElementById("pageTitle").value = "";
+    document.getElementById("pageContent").value = "";
+});
