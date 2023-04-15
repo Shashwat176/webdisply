@@ -2,17 +2,17 @@
 <html>
 <head>
     <title>Website Builder</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Website Builder</h1>
-    <nav>
-        <ul id="pageList"></ul>
-    </nav>
-    <main id="pageContent">
-        <h2 id="pageTitle">Welcome</h2>
-        <p id="pageText">Select a page from the navigation to view its content.</p>
-    </main>
+    <form id="pageForm">
+        <label for="pageTitle">Page Title:</label>
+        <input type="text" id="pageTitle" required>
+        <label for="pageContent">Page Content:</label>
+        <textarea id="pageContent" rows="4" required></textarea>
+        <button type="submit">Create Page</button>
+    </form>
+    <ul id="pageIndex"></ul>
     <script src="script.js"></script>
 </body>
 </html>
