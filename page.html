@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="pageTitle"></h1>
+    <p id="pageContent"></p>
+    <img id="pageImage" src="" alt="">
+    <video id="pageVideo" controls></video>
+    <embed id="pagePdf" type="application/pdf" width="100%" height="600px">
+    <script src="script.js"></script>
+    <script>
+        // Retrieve pageId from URL parameter
+        var urlParams = new URLSearchParams(window.location.search);
+        var pageId = urlParams.get("pageId");
+
+        // Find the page object in the pages array by pageId
+        var page = pages.find(function(page) {
+            return page.id === pageId;
+        });
+
+        // Update page content on the page
+        if (page) {
+            document.getElementById("pageTitle").textContent = page.title;
+            document.getElementById("pageContent").textContent = page.content;
+            document.getElementById("pageImage").src = page.imageUrl;
+            document.getElementById("pageVideo").src = page.videoUrl;
+            document.getElementById("pagePdf").src = page.pdfUrl;
+        } else {
+            document.getElementById("pageTitle").textContent = "Page not found";
+        }
+    <script src="script.js"></script>
+    <script>
+        // Retrieve pageId from URL parameter
+        var urlParams = new URLSearchParams(window.location.search);
+        var pageId = urlParams.get("pageId");
+
+        // Find the page object in the pages array by pageId
+        var page = pages.find(function(page) {
+            return page.id === pageId;
+        });
+
+        // Update page content on the page
+        if (page) {
+            document.getElementById("pageTitle").textContent = page.title;
+            document.getElementById("pageContent").textContent = page.content;
+            document.getElementById("pageImage").src = page.imageUrl;
+            document.getElementById("pageVideo").src = page.videoUrl;
+            document.getElementById("pagePdf").src = page.pdfUrl;
+        } else {
+            document.getElementById("pageTitle").textContent = "Page not found";
+        }
+    </script>
+</body>
+</html>
