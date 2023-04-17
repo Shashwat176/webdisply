@@ -8,7 +8,7 @@
     // Set up GitHub repository details
     $repoOwner = 'Shashwat176';
     $repoName = 'webdisply';
-    $filePath = 'webdisply/uploaded/files/' . $file['name'];
+    $filePath = 'webdisply/datauploaded/files/' . $file['name'];
     $accessToken = 'your_github_access_token'; // Requires appropriate access token with write permissions
 
     // Create the file on GitHub using GitHub API
