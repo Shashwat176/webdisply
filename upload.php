@@ -9,7 +9,7 @@
     $repoOwner = 'Shashwat176';
     $repoName = 'webdisply';
     $filePath = 'webdisply/datauploaded/files/' . $file['name'];
-    $accessToken = 'your_github_access_token'; // Requires appropriate access token with write permissions
+    $accessToken = 'secrets.ACCESS_TOKEN'; // Requires appropriate access token with write permissions
 
     // Create the file on GitHub using GitHub API
     $url = 'https://api.github.com/repos/' . $repoOwner . '/' . $repoName . '/contents/' . $filePath;
