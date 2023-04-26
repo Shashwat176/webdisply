@@ -13,7 +13,7 @@
         <button type="submit" name="register">Register</button>
     </form>
     <br>
-    <a href="index.php">Back to Login</a>
+    <a href="index.html">Back to Login</a>
 </body>
 </html>
 
